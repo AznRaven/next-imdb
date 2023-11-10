@@ -38,7 +38,7 @@ export async function generateStaticParams() {
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
   );
   const data = await res.json();
-  return data.results.map((x : Movie) => ({ x: toString(x.id), }));
+  return data.results.map((x : Movie) => ({ x: x.id.toString, }));
 }
 
 export default async function MovieDetail({ params }) {
